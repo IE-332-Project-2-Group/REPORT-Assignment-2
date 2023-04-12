@@ -156,7 +156,7 @@ Accountable together -- we are Purdue.''}
 ENTER HERE
 
 \subsection{Part B}
-
+Part B Written Explanation:
 Because of their constant time complexity, lines 1 and 6 can be disregarded for analysis.
 For each iteration of the outer loop (line 2), which itself iterates n times, the inner loop (lines 3 to 5) iterates sqrt(n) times. As a result, the inner loop is run n*sqrt(n) times in total.
 Each iteration of the inner loop requires a constant amount of time because h(j)'s complexity is $\theta$ (1). As a result, the algorithm's overall time complexity is (n*sqrt(n)).
@@ -167,7 +167,7 @@ In conclusion, the algorithm presented has a time complexity of (n*sqrt(n)).
 ENTER HERE
 
 \subsection{Part D}
-
+Part D Written Explanation:
 The time complexity of this algorithm depends on the value of the input number x. Let's analyze the three cases:
 1 - If x is a power of 2:
 The algorithm will run in log(x) time if x is a power of two since it will iterate over the while loop log(x) times, dividing each time by 2 until the result is 1. Since x is not divisible by 3, the function g(X) is not invoked in this situation.
@@ -202,7 +202,7 @@ ENTER HERE
 \section{Question 2}
 \subsection{Part A}
 
-
+Part A Written Explanation:
 The loop invariant is i<x which makes the code run (as long as i is less than the amount of attempts run the code). This  condition holds true throughout the code. The loop invariants seem to be correct. 
 
 
