@@ -40,7 +40,7 @@ showstringspaces=false
 \phantom{}  % Put something on the page so it shows
 }
 \fancyfoot[L]{IE 332}
-\fancyfoot[C]{Assignment submission}
+\fancyfoot[C]{Assignment 2}
 \fancyfoot[R]{Page \thepage}
 \renewcommand{\footrulewidth}{0.4pt}
 
@@ -56,7 +56,7 @@ showstringspaces=false
 \begin{center}
 \Huge{{\bf IE332 Assignment \#2}} % <-- replace with correct assignment #
 
-Due: March 14th, 11:59pm EST % <-- replace with correct due date and time
+Due: April 14th, 11:59pm EST % <-- replace with correct due date and time
 \end{center}
 
 \vspace{0.3in}
@@ -140,35 +140,34 @@ Accountable together -- we are Purdue.''}
 
 
 \addcoversheet
+
 \addtodo
 
 % BEGIN YOUR ASSIGNMENT HERE:
+\newpage
 
+\fancyhead[L]{\textbf{Question 1}}
+\section{Question 1}
 % Question 1
-\newquestion{1}
+
 % \noindent Example of proper typesetting of quotation marks:\\
 % ``proper opening and closing quotation marks'' vs "bad quotation marks".
-\noindent Part a:
-\begin{lstlisting}[frame=single]
+\subsection{Part A}
 ENTER HERE
-\end{lstlisting}
 
-\noindent Part b:
-\begin{lstlisting}[frame=single]
+\subsection{Part B}
+
 Because of their constant time complexity, lines 1 and 6 can be disregarded for analysis.
 For each iteration of the outer loop (line 2), which itself iterates n times, the inner loop (lines 3 to 5) iterates sqrt(n) times. As a result, the inner loop is run n*sqrt(n) times in total.
-Each iteration of the inner loop requires a constant amount of time because h(j)'s complexity is Θ(1). As a result, the algorithm's overall time complexity is (n*sqrt(n)).
+Each iteration of the inner loop requires a constant amount of time because h(j)'s complexity is $\theta$ (1). As a result, the algorithm's overall time complexity is (n*sqrt(n)).
 We can omit the lower-order term sqrt(n) in large O notation, making the time complexity O(n*sqrt(n)). Similarly, we can write the time complexity as (n*sqrt(n)) in the Theta notation.
 In conclusion, the algorithm presented has a time complexity of (n*sqrt(n)).
-\end{lstlisting}
 
-\noindent Part c:
-\begin{lstlisting}[frame=single]
+\subsection{Part C}
 ENTER HERE
-\end{lstlisting}
 
-\noindent Part d:
-\begin{lstlisting}[frame=single]
+\subsection{Part D}
+
 The time complexity of this algorithm depends on the value of the input number x. Let's analyze the three cases:
 1 - If x is a power of 2:
 The algorithm will run in log(x) time if x is a power of two since it will iterate over the while loop log(x) times, dividing each time by 2 until the result is 1. Since x is not divisible by 3, the function g(X) is not invoked in this situation.
@@ -181,31 +180,34 @@ As there is no condition to stop the loop in this instance, the algorithm will c
 
 Therefore, the time complexity of the algorithm is O(log(x)).
 As for the space complexity, it is constant since the algorithm does not use any extra memory that grows with the input size.
-\end{lstlisting}
 
-\noindent Part e:
-\begin{lstlisting}[frame=single]
-ENTER HERE
-\end{lstlisting}
 
-\noindent Part f:
-\begin{lstlisting}[frame=single]
-ENTER HERE
-\end{lstlisting}
+\subsection{Part E}
 
-\noindent Part g:
-\begin{lstlisting}[frame=single]
 ENTER HERE
-\end{lstlisting}
+
+
+\subsection{Part F}
+
+ENTER HERE
+
+
+\subsection{Part G}
+
+ENTER HERE
+\newpage
 
 % Question 2
-\newquestion{2}
-Part a:
+\fancyhead[L]{\textbf{Question 2}}
+\section{Question 2}
+\subsection{Part A}
+
 
 The loop invariant is i<x which makes the code run (as long as i is less than the amount of attempts run the code). This  condition holds true throughout the code. The loop invariants seem to be correct. 
 
 
-\noindent Part b:
+\subsection{Part B}
+Part B R Code:
 \begin{lstlisting}[language=R, frame=single]
 library(purrr)
 
@@ -223,7 +225,8 @@ f <- function(x) {
 }
 \end{lstlisting}
 
-\noindent Part c:
+\subsection{Part C}
+Part C R Code:
 \begin{lstlisting}[language=R, frame=single]
 library(purrr)
 f <- function(x, count=0, i=0){
@@ -239,64 +242,82 @@ f <- function(x, count=0, i=0){
   }
 }
 \end{lstlisting}
+Part C Written Explanation:
+
 In the original case i<x is a while loop condition that runs until the code has run out of attempts
 In this case i<x is an if statement, serving as a guard expression. Recursivity is put into an if statement with a loop condition i<x that returns to the initial function by passing x, count and i variables to its next iteration within the function. With every recursive run i larger and once it  gets equal to x,it puts a stop to the function and returns the final result of the code. 
 
 Let us try to prove the correctness of this code.
 Initialization: Once we enter the code with x attempts, count =0 and i=0  the code will generate a random point within -1,1 and square them. At this stage is i<x. Then if the sum of the coordinates is less then 1 the count increases by 1 with an afterwards increase of i
 Maintenance: To see that each iteration maintains i<x, observe how i changes  and compare it to x. Once the condition i<x holds true then we return to the function with the same value of x and the new increased count and i. The next iteration is entered with x, count=1 and i=1. Termination: Eventually, having this process repeated i will become equal to x and the condition (i<x) terminates, leading to the else statement return(count/i*4) . Which means that invariant i<x still holds true.
+\newpage
+
+% Question 3
+\fancyhead[L]{\textbf{Question 3}}
+\section{Question 3}
+\subsection{Part A}
+ENTER HERE
+\subsection{Part B}
+ENTER HERE
+\subsection{Part C}
+ENTER HERE
+\subsection{Part D}
+ENTER HERE
+\subsection{Part E}
+ENTER HERE
+\subsection{Part F}
+ENTER HERE
+\subsection{Part G}
+ENTER HERE
+\newpage
 
 % Question 4
-\newquestion{4}
-\noindent Part a:
+\fancyhead[L]{\textbf{Question 4}}
+\section{Question 4}
+\subsection{Part A}
+Part A Written Explanation: 
 Over 10 epochs for the less complex neural network comprised of 5 nodes and 1 hidden layer, there seems to be a net under-fitting when comparing the performances of the test and training results in Figure 1. This result was to be expected as under-fitting occurs when a model is too simple. This model proved to be too simple.
+Part A R Code:
 \begin{lstlisting}[language=R, frame=single]
 library(neuralnet)
-
 #Import the data and clean it of Na's. Convert neg,pos to 0,1.
 aps_failure_data <-
   read.csv("aps_failure_training_set.csv", na.strings = c("", "na"))
 aps_failure_data_clean <- na.omit(aps_failure_data)
 aps_failure_data_clean$class <-
   ifelse(aps_failure_data_clean$class == "pos", 1, 0)
-
 #Define training and testing data
 training_data <- aps_failure_data_clean[1:295,]
 testing_data <- aps_failure_data_clean[296:590,]
-
 # Creates the neural net with the training data hidden = changes the complexity
 #to compare performance over epochs
 neural_net4a <-
   neuralnet(class ~ . - training_data$class,data = training_data,hidden = c(25,5),
     linear.output = FALSE,algorithm = "sag")
-
-# Initialize variables to track errors
+#Initialize variables to track errors
 training_errors <- rep(0, 10)
 testing_errors <- rep(0, 10)
-
-# Loop over the number of epochs to collect errors
+#Loop over the number of epochs to collect errors
 for (i in 1:10) {
-  # Compute errors on training data
+#Compute errors on training data
   net_result_train <- compute(neural_net4a, training_data[])
   training_errors[i] <-sum((net_result_train$net.result[, 1] > 0.5)!= training_data[, "class"])
-  
-  # Compute errors on testing data
+#Compute errors on testing data
   net_result_test <- compute(neural_net4a, testing_data[])
   testing_errors[i] <- sum((net_result_test$net.result[, 1] > 0.5)!= testing_data[, "class"])
-  
-  
-  # Update the neural network with training data
+#Update the neural network with training data
   neural_net4a <- update(neural_net4a, training_data[],training_data[, "class"])
 }
-
-# Plots the training and testing errors over the epochs
+#Plots the training and testing errors over the epochs
 plot(training_errors,type = "l",col = "blue",xlab = "# of Epochs",ylab = "# of Errors",
   ylim = c(0, max(training_errors, testing_errors)),main = "Panel 2")
 lines(testing_errors, type = "l", col = "red")
 legend("bottomright",legend = c("Training Errors", "Testing Errors"),col = c("blue", "red"),lty = 1)
 \end{lstlisting}
 
-\noindent Part b: As the complexity of the neural net increased, the under-fitting behavior approached a more over-fitting behavior. In Figure 3, the fit appeared to be closest to its 'sweet spot', which is typically seen in the classical U-shaped risk curve. However, after that point, as the complexity increased in Figure 4, an over-fitting behavior began to appear, putting the test at risk. The complexity at this point was too high to accurately predict new data. The algorithm reached the point of memorization rather than learning. 
+\subsection{Part B} 
+Part B Written Explanation: 
+As the complexity of the neural net increased, the under-fitting behavior approached a more over-fitting behavior. In Figure 3, the fit appeared to be closest to its 'sweet spot', which is typically seen in the classical U-shaped risk curve. However, after that point, as the complexity increased in Figure 4, an over-fitting behavior began to appear, putting the test at risk. The complexity at this point was too high to accurately predict new data. The algorithm reached the point of memorization rather than learning. 
 
 \begin{figure}[!tbp]
   \centering
@@ -324,10 +345,13 @@ legend("bottomright",legend = c("Training Errors", "Testing Errors"),col = c("bl
 \end{figure}
 
 
-\noindent Part c: waiting
+\subsection{Part C} 
+ENTER HERE
 
+\newpage
 % Question 5
-\newquestion{5}
+\fancyhead[L]{\textbf{Question 5}}
+\section{Question 5}
 Libraries used for Question 5:
 \begin{lstlisting}[language=R, frame=single]
 library(tidyverse)
@@ -339,7 +363,8 @@ library(caret)
 library(car)
 library(glmnet)
 \end{lstlisting}
-Part a:
+\subsection{Part A} 
+Part A R Code:
 \begin{lstlisting}[language=R, frame=single]
 #Import Data. Ensure this .r file is in the same folder/working directory as the .csv
 real_estate_data_raw <- read.csv("train.csv", header=TRUE)
@@ -374,10 +399,13 @@ cat("The Average Overall Quality Rating of Cluster 3 is", sprintf("%.2f", c3qual
 cat("The Average Overall Quality Rating of Cluster 4 is", sprintf("%.2f", c4qual))
 
 \end{lstlisting}
-Part b:
+\subsection{Part B} 
+Part B Written Explanation:
 After the clustering algorithm executes, the data of all 4 clusters is collected. The script then analyzes this data to provide a printing of the average overall quality of each cluster’s properties. This is a strong predictor of an increase in real-estate prices. A prospective buyer is looking for an investment, and a piece of real estate with excellent overall quality would be the target of the said buyer. The clusters are created from a random selection of 50 properties from the overall data set so that the cluster remains readable but contains enough data to be useful. Whichever cluster has the highest overall quality is likely to increase in price. 
-Part c:
+\subsection{Part C} 
+Part C Written Explanation:
 The regression machine learning algorithm used for all numerical real-estate data saw an r-squared value of 0.765. This value shows a high correlation between the predicted values and the actual values in the testing data set used for the algorithm. The group regards this as a positive result regarding the performance of our linear regression model. The model we used predicted the overall quality of the properties.
+Part C R Code:
 \begin{lstlisting}[language=R, frame=single]
 #Regression machine learning algorithm on all data for overall quality of
 #property 5C--------------------------------------------------------------------
@@ -400,8 +428,11 @@ Rsquare <- sqrt(mean((testing$OverallQual - predictions)^2))
 print(paste0("R-squared value is: ", round(Rsquare, 3)))
 \end{lstlisting}
 
-Part d:
+\subsection{Part D} 
+Part D Written Explanation:
 The regression machine learning algorithm used for the individual clusters of real-estate data was an altered version of the algorithm used in part 5c. Instead of using all the data, the algorithm collected the data from each cluster in a data frame as the clusters are constructed. The group wanted to test and train with an equal amount of rows of data, so if a cluster had an odd amount of data entities, then one was omitted to allow for an even, whole-numbered split. The clusters saw anywhere between 0.69 - 0.78 r-squared values when the algorithm is run and clusters were created. These results are seen as positive. However, the group made notice of an anomaly that occurred when the script is executed. One of the clusters had an r-squared value of 32. As R-squared values should be between 0-1, this is an inaccurate prediction for that specific cluster. Despite debugging efforts, the group could not reach the issue's root.
+
+Part D R Code:
 \begin{lstlisting}[language=R, frame=single]
 #Regression machine learning algorithm on individual cluster data for overall 
 #quality of property 5D------------------------------------------------------------
