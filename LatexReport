@@ -168,19 +168,19 @@ ENTER HERE
 
 \subsection{Part D}
 Part D Written Explanation:
-The time complexity of this algorithm depends on the value of the input number x. Let's analyze the three cases:
+The time complexity of this algorithm depends on the value of the input number x. Let us analyze the three cases:
 \begin{enumerate}
     \item If x is a power of 2:
-The algorithm will run in log(x) time if x is a power of two since it will iterate over the while loop log(x) times, dividing each time by 2 until the result is 1. Since x is not divisible by 3, the function g(X) is not invoked in this situation.
+The algorithm will run in log(x) time if x is a power of two since it will iterate over the while loop log(x) times, dividing each time by 2 until the result is 1. Since x is not divisible by 3, the function g(X) is not invoked.
 
 \item If x is divisible by 3 but not divisible by 2:
-Similar to the prior example, the algorithm will execute in log(x) time, but this time, each iteration will now include a check to verify if x is divisible by 3. If so, x is set to be 2 to the power of x and the function g(X) is not called. Instead, dividing x by 2 is performed by calling the function g(X). The algorithm's overall time complexity in this situation is still O(log(x)), as the function g(X) runs in log(x) time.
+Similar to the preceding example, the algorithm will execute in log(x) time, but this time, each iteration will now include a check to verify if x is divisible by 3. If so, x is set to be 2 to the power of x, and the function g(X) is not called. Instead, dividing x by 2 is performed by calling the function g(X). The algorithm's overall time complexity in this situation is still O(log(x)), as the function g(X) runs in log(x) time.
 
 \item If x is not a power of 2 and not divisible by 3:
-As there is no condition to stop the loop in this instance, the algorithm will continue to loop forever. Given that x must be an integer with a value larger than 1, we may assume that this scenario won't occur.
+As there is no condition to stop the loop in this instance, the algorithm will continue to loop forever. Given that x must be an integer with a value larger than 1, we may assume that this scenario will not occur.
 
-Therefore, the time complexity of the algorithm is O(log(x)).
-As for the space complexity, it is constant since the algorithm does not use any extra memory that grows with the input size.
+Therefore, the algorithm's time complexity is O(log(x)).
+As for the space complexity is constant since the algorithm does not use any extra memory that grows with the input size.
 \end{enumerate}
 
 \subsection{Part E}
@@ -204,7 +204,7 @@ ENTER HERE
 \subsection{Part A}
 
 Part A Written Explanation:
-The loop invariant is i<x which makes the code run (as long as i is less than the amount of attempts run the code). This  condition holds true throughout the code. The loop in variants seem to be correct. 
+The loop invariant is i<x, which makes the code run (as long as i is less than the amount of attempts to run the code). This  condition holds throughout the code. The loop invariants seem to be correct. 
 
 
 \subsection{Part B}
@@ -245,12 +245,12 @@ f <- function(x, count=0, i=0){
 \end{lstlisting}
 Part C Written Explanation:
 
-In the original case i<x is a while loop condition that runs until the code has run out of attempts
-In this case i<x is an if statement, serving as a guard expression. Recursivity is put into an if statement with a loop condition i<x that returns to the initial function by passing x, count and i variables to its next iteration within the function. With every recursive run i larger and once it  gets equal to x,it puts a stop to the function and returns the final result of the code. 
+In the original case, i<x is a while loop condition until the code has run out of attempts.
+In this case i<x is an if statement, serving as a guard expression. Recursivity is put into an if statement with a loop condition i<x that returns to the initial function by passing x, count, and i variables to its next iteration within the function. With every recursive run i larger and once it gets equal to x, it stops the function and returns the final result of the code. 
 
 Let us try to prove the correctness of this code.
-Initialization: Once we enter the code with x attempts, count =0 and i=0  the code will generate a random point within -1,1 and square them. At this stage is i<x. Then if the sum of the coordinates is less then 1 the count increases by 1 with an afterwards increase of i
-Maintenance: To see that each iteration maintains i<x, observe how i changes  and compare it to x. Once the condition i<x holds true then we return to the function with the same value of x and the new increased count and i. The next iteration is entered with x, count=1 and i=1. Termination: Eventually, having this process repeated i will become equal to x and the condition (i<x) terminates, leading to the else statement return(count/i*4) . Which means that invariant i<x still holds true.
+Initialization: Once we enter the code with x attempts, count =0, and i=0  the code will generate a random point within -1,1 and square them. At this stage is i<x. Then if the sum of the coordinates is less then 1 the count increases by 1 with an afterward increase of i
+Maintenance: To see that each iteration maintains i<x, observe how i changes and compare it to x. Once the condition i<x holds, we return to the function with the same value of x and the new increased count and i. The next iteration is entered with x, count=1 and i=1. Termination: Eventually, having this process repeated, i will become equal to x, and the condition (i<x) terminates, leading to the else statement return(count/i*4) . Which means that invariant i<x still holds.
 \newpage
 
 % Question 3
@@ -319,7 +319,7 @@ legend("bottomright",legend = c("Training Errors", "Testing Errors"),col = c("bl
 
 \subsection{Part B} 
 Part B Written Explanation: 
-As the complexity of the neural net increased, the under-fitting behavior approached a more over-fitting behavior. In Figure 3, the fit appeared to be closest to its 'sweet spot', which is typically seen in the classical U-shaped risk curve. However, after that point, as the complexity increased in Figure 4, an over-fitting behavior began to appear, putting the test at risk. The complexity at this point was too high to accurately predict new data. The algorithm reached the point of memorization rather than learning. 
+As the complexity of the neural net increased, the under-fitting behavior approached a more over-fitting behavior. In Figure 3, the fit appeared closest to its 'sweet spot,' typically seen in the classical U-shaped risk curve. However, after that point, as the complexity increased in Figure 4, an over-fitting behavior began to appear, putting the test at risk. The complexity at this point was too high to predict new data accurately. The algorithm reached the point of memorization rather than learning. 
 
 \begin{figure}[!tbp]
   \centering
@@ -403,7 +403,7 @@ cat("The Average Overall Quality Rating of Cluster 4 is", sprintf("%.2f", c4qual
 \end{lstlisting}
 \subsection{Part B} 
 Part B Written Explanation:
-After the clustering algorithm executes, the data of all 4 clusters is collected. The script then analyzes this data to provide a printing of the average overall quality of each cluster’s properties. This is a strong predictor of an increase in real-estate prices. A prospective buyer is looking for an investment, and a piece of real estate with excellent overall quality would be the target of the said buyer. The clusters are created from a random selection of 50 properties from the overall data set so that the cluster remains readable but contains enough data to be useful. Whichever cluster has the highest overall quality is likely to increase in price. 
+After the clustering algorithm executes, the data of all 4 clusters are collected. The script then analyzes this data to provide printing of the average overall quality of each cluster's properties. This is a strong predictor of an increase in real-estate prices. A prospective buyer is looking for an investment, and a piece of real estate with excellent overall quality would be the buyer's target. The clusters are created from a random selection of 50 properties from the overall data set so that the cluster remains readable but contains enough data to be helpful. Whichever cluster has the highest overall quality is likely to increase in price. 
 \subsection{Part C} 
 Part C Written Explanation:
 The regression machine learning algorithm used for all numerical real-estate data saw an r-squared value of 0.765. This value shows a high correlation between the predicted values and the actual values in the testing data set used for the algorithm. The group regards this as a positive result regarding the performance of our linear regression model. The model we used predicted the overall quality of the properties.
@@ -433,7 +433,7 @@ print(paste0("R-squared value is: ", round(Rsquare, 3)))
 
 \subsection{Part D} 
 Part D Written Explanation:
-The regression machine learning algorithm used for the individual clusters of real-estate data was an altered version of the algorithm used in part 5c. Instead of using all the data, the algorithm collected the data from each cluster in a data frame as the clusters are constructed. The group wanted to test and train with an equal amount of rows of data, so if a cluster had an odd amount of data entities, then one was omitted to allow for an even, whole-numbered split. The clusters saw anywhere between 0.69 - 0.78 r-squared values when the algorithm is run and clusters were created. These results are seen as positive. However, the group made notice of an anomaly that occurred when the script is executed. One of the clusters had an r-squared value of 32. As R-squared values should be between 0-1, this is an inaccurate prediction for that specific cluster. Despite debugging efforts, the group could not reach the issue's root.
+The regression machine learning algorithm used for the individual clusters of real-estate data was an altered version of the algorithm used in part 5c. Instead of using all the data, the algorithm collected the data from each cluster in a data frame as the clusters were constructed. The group wanted to test and train with an equal amount of rows of data, so if a cluster had an odd amount of data entities, one was omitted to allow for an even, whole-numbered split. The clusters saw anywhere between 0.69 - 0.78 r-squared values when the algorithm was run, and clusters were created. These results are seen as positive. However, the group made notice of an anomaly that occurred when the script was executed. One of the clusters had an r-squared value of 32. As R-squared values should be between 0-1, this is an inaccurate prediction for that specific cluster. Despite debugging efforts, the group could not reach the issue's root.
 
 Part D R Code:
 \begin{lstlisting}[language=R, frame=single]
@@ -506,3 +506,4 @@ Rsquare_c4 <- sqrt(mean((testing_c4$OverallQual - predictions_c4)^2))
 print(paste0("R-squared value for the cluster 4 model is: ", round(Rsquare_c4, 3)))
 \end{lstlisting}
 \end{document}
+
