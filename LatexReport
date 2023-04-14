@@ -639,7 +639,8 @@ As the complexity of the neural net increased, the under-fitting behavior approa
 
 
 \subsection{Part C} 
-ENTER HERE
+Part C Written Explanation:
+The results from part B in this question and part E in question 3 align. The final takeaway from Q3E was that pruning/post-pruning can optimize the tree to reduce over-fitting. A reduction in depth (or complexity) can prevent this from occurring in both parts.
 
 \newpage
 % Question 5
@@ -797,5 +798,3 @@ Rsquare_c4 <- sqrt(mean((testing_c4$OverallQual - predictions_c4)^2))
 print(paste0("R-squared value for the cluster 4 model is: ", round(Rsquare_c4, 3)))
 \end{lstlisting}
 \end{document}
-
-
