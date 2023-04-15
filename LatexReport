@@ -76,13 +76,13 @@ Accountable together -- we are Purdue.''}
     \begin{tabular}{c|ccccc|c|c}
       Student & Q1 & Q2 & Q3 & Q4 & Q5 & Overall & DIFF\\
       \hline
-      Talya Arpaci & 50 & 33 & 83 & 17 & 0 & 0 & 0\\
-      Hershi Meher & 50 & 33 & 83 & 17 & 0 & 0 & 0\\
-      Mohamed Abuelreish & 0 & 33 & 33 & -33 & 0 & 0 & 0\\
-      Andrew Newquist & 50 & 33 & 83 & 17 & 0 & 0 & 0\\
-      Nicholas Alfano & 0 & 33 & 33 & -33 & 0 & 0 & 0\\
+      Talya Arpaci & 10 & 60 & 10 & 10 & 10 & 100 & 0\\
+      Hershi Meher & 30 & 10 & 50 & 10 & 10 & 110 & +10\\
+      Mohamed Abuelreish & 30 & 10 & 10 & 10 & 10 & 70 & -30\\
+      Andrew Newquist & 10 & 10 & 10 & 60 & 60 & 150 & +50\\
+      Nicholas Alfano & 10 & 10 & 20 & 10 & 10 & 60 & -40\\
       \hline
-      St Dev & 29 & 0 & 29 & 29 & 0 & 0 & 0
+      St Dev & 10.95 & 22.36 & 17.32 & 22.36 & 22.36 & 37.01 & 35.64
     \end{tabular}
   \end{center}
 \end{table}
@@ -153,49 +153,208 @@ Accountable together -- we are Purdue.''}
 % \noindent Example of proper typesetting of quotation marks:\\
 % ``proper opening and closing quotation marks'' vs "bad quotation marks".
 \subsection{Part A}
-ENTER HERE
+Part A Written Explanation:
+The outer loop in lines 2-8 iterates n times. For each iteration, the inner loop in lines 4-7 iterates n/i times, where i is the loop counter in the outer loop.  Therefore, the total number of iterations of the inner loop can be expressed as: \begin{math}\Sigma(n/i) for i = 1 to n\end{math}
+This is a harmonic series, which has the following asymptotic behavior:
+\begin{math}\Sigma(n/i) for i = 1 to n = \Theta(n log n)\end{math}
+Since the time complexity of the function g(j) in line 5 is \begin{math}\Theta(1)\end{math}, the total time complexity of the algorithm can be expressed as: \begin{math}\Theta(n log n)\end{math}
+The time complexity of this algorithm: \begin{math}\Theta(n log n)\end{math}.
+
+
 
 \subsection{Part B}
 Part B Written Explanation:
-Because of their constant time complexity, lines 1 and 6 can be disregarded for analysis.
-For each iteration of the outer loop (line 2), which itself iterates n times, the inner loop (lines 3 to 5) iterates sqrt(n) times. As a result, the inner loop is run n*sqrt(n) times in total.
-Each iteration of the inner loop requires a constant amount of time because h(j)'s complexity is $\theta$ (1). As a result, the algorithm's overall time complexity is (n*sqrt(n)).
-We can omit the lower-order term sqrt(n) in large O notation, making the time complexity O(n*sqrt(n)). Similarly, we can write the time complexity as (n*sqrt(n)) in the Theta notation.
-In conclusion, the algorithm presented has a time complexity of (n*sqrt(n)).
+The given equation \begin{math}\sqrt{n}*n=(n^{3/2})\end{math} can be simplified to show that the total number of iterations of the inner loop is equal to \begin{math}n^({3/2})\end{math}. Each iteration of the inner loop calls function h(j), which has a time complexity of \begin{math}\Theta(1)\end{math}. Therefore, the time complexity of the algorithm can be calculated by multiplying the number of iterations of the inner loop with the time complexity of function h(j), which results in a time complexity of \begin{math}\Theta(n^{3/2})\end{math}. It is important to note that the \begin{math}\Theta\end{math} notation indicates that the algorithm's time complexity is bounded both from above and below by a constant multiple of \begin{math}n^{3/2}\end{math}, which means that the algorithm's running time grows at the same rate as \begin{math}n^{3/2}\end{math}, up to a constant factor. In summary, the given equation, along with the complexities of the inner loop and function h(j), leads to a time complexity of \begin{math}\Theta = \Theta(n^{3/2})\end{math} for the algorithm.
 
 \subsection{Part C}
-ENTER HERE
+Part C Written Explanation:
+The outer loop iterates from i=3 to n, so it runs (n-3+1) = (n-2) times.
+The inner loop iterates while j $\le$ n/i, which means that it runs (n/i + 1) times. Assuming integer division here: n/i = floor(n)/i.
+Therefore, the total number of iterations of the inner loop over all iterations of the outer loop is: \begin{math}\Sigma\end{math}(n/i + 1), where i goes from 3 to n.
+
+Simplifying:
+\begin{math}\Sigma\end{math}(n/i + 1) = \begin{math}\Sigma\end{math}(n/i) + \begin{math}\Sigma\end{math}(1)
+= n\begin{math}\Sigma\end{math}(1/i) + (n-2)
+= n(1 + 1/2 + 1/3 + ... + 1/n) + (n-2)
+
+The sum (1 + 1/2 + 1/3 + ... + 1/n) is the harmonic series, which has time complexity log(n). Therefore, we can simplify the total number of iterations as:
+n(log(n) + 1) + (n-2) = nlog(n) + n - 2
+Since each iteration of the inner loop takes constant time (line 5 and line 6 have time complexity of 1), the total running time of the algorithm is \begin{math}\Theta\end{math}(nlog(n)).
+Time complexity of this algorithm: \begin{math}\Theta\end{math}(nlog(n)).
+
 
 \subsection{Part D}
 Part D Written Explanation:
-The time complexity of this algorithm depends on the value of the input number x. Let us analyze the three cases:
-\begin{enumerate}
-    \item If x is a power of 2:
-The algorithm will run in log(x) time if x is a power of two since it will iterate over the while loop log(x) times, dividing each time by 2 until the result is 1. Since x is not divisible by 3, the function g(X) is not invoked.
+The time complexity of this algorithm depends on the value of the input number x. The algorithm described operates using a while loop, which will run until a condition is met. Specifically, the loop will run until x is less than or equal to 1, which is the worst-case scenario. During each iteration, x will be manipulated in a variety of ways depending on its parity and divisibility by 3. If x is odd, it will be multiplied by 2 in each iteration until it becomes even. This will occur a total of O(logx) times. If x is even and divisible by 3 but not 2, it will also be multiplied by 2 in each iteration until it becomes even, which will also take O(logx) iterations. If x is even and not divisible by 3, it will be divided by 2 using a function g(x) in each iteration until it becomes odd. This operation will also take O(logx) iterations. In total, the while loop will execute O(logx) times. The function g(x) will take O(logx) time as well. Thus, the time complexity of the algorithm is \begin{math}O(log^{2}x)\end{math}, which is denoted by \begin{math}\Theta = O(log^{2}x)\end{math}.
 
-\item If x is divisible by 3 but not divisible by 2:
-Similar to the preceding example, the algorithm will execute in log(x) time, but this time, each iteration will now include a check to verify if x is divisible by 3. If so, x is set to be 2 to the power of x, and the function g(X) is not called. Instead, dividing x by 2 is performed by calling the function g(X). The algorithm's overall time complexity in this situation is still O(log(x)), as the function g(X) runs in log(x) time.
-
-\item If x is not a power of 2 and not divisible by 3:
-As there is no condition to stop the loop in this instance, the algorithm will continue to loop forever. Given that x must be an integer with a value larger than 1, we may assume that this scenario will not occur.
-
-Therefore, the algorithm's time complexity is O(log(x)).
-As for the space complexity is constant since the algorithm does not use any extra memory that grows with the input size.
-\end{enumerate}
 
 \subsection{Part E}
+Part E Written Explanation:
+e)	The given algorithm contains a while loop that iterates over the elements of the input list x (n times).
+For each element, there is a conditional statement that either appends a new element or removes an existing one from the list. 
+The conditional statement is followed by a call to a function g(x), which operates on list x.
+The function g(x) is called in both cases, and its time complexity depends on the size of the input list. According to the given information, g(x) takes \begin{math}n^{2}\end{math} time when the even-indexed element is being processed, and log(n) time when the odd-indexed element is being processed.
+Therefore, to analyze the time complexity of this algorithm, we need to consider two cases: when the even-indexed elements are being processed and when the odd-indexed elements are being processed.
 
-ENTER HERE
+Case 1: Even-indexed elements
+For even-indexed elements, the while loop iterates n/2 times. Within each iteration, there are two constant-time operations (line 4 and 5) followed by a call to g(x), which takes \begin{math}n^{2} \end{math} time. Therefore, the time complexity of the loop for even-indexed elements is:
+
+\begin{math}(n/2) * (2 + n^{2}) = (n^{3/2}) + n\end{math}
+
+Case 2: Odd-indexed elements
+For odd-indexed elements, the while loop iterates n/2 times. Within each iteration, there are two constant-time operations (line 7 and 8) followed by a call to g(x), which takes log(n) time. Therefore, the time complexity of the loop for odd-indexed elements is:
+
+\begin{math}(n/2) * (2 + log(n)) = (nlog(n)/2) + n\end{math}
+
+The overall time complexity of the algorithm is the sum of the time complexities of the two cases = \begin{math}\Theta((n^{3/2}) + (nlog(n)/2) + n)\end{math}.
+This can be simplified to \begin{math}\Theta(n^{3})\end{math}, since \begin{math}n^3\end{math} is the dominant term in the expression. 
+Simplified time complexity of this algorithm: \begin{math}\Theta(n^{3}).\end{math}
+
 
 
 \subsection{Part F}
 
-ENTER HERE
+\underline{Algorithm 1}:
+What the algorithm is supposed to do: 
+The algorithm is supposed to sort the input list x in ascending order using a selection sort technique that iteratively selects the smallest element from the unsorted portion of the array and moves it to the beginning of the sorted part of the array.
+Analysis of run-time complexity:
+The outer loop iterates n times (line 3), where n is the length of the input list x.
+The inner loop calls the function "findmin" on a sub-list of x (line 4), which has a length that decreases by 1 at each iteration of the outer loop.
+The "findmin" function needs to iterate over the sub-list to find the minimum value and its index. This operation has a time complexity of O(n).
+Deleting an element from the list (line 5) takes O(n) time in the worst case because it requires shifting all the elements that come after the deleted element.
+Pushing an element to the list (line 6) takes O(1) time in the best case and O(n) time in the worst case if the list needs to be resized.
+Therefore, the worst-case run-time complexity of the algorithm is \begin{math}O(n^{2})\end{math}, which occurs when the input list x is sorted in descending order, and each deletion and insertion operation takes O(n) time.
+
+T function for the worst case:
+\begin{math}T(n) = n * (n + 1) / 2 * O(n) = O(n^{2})\end{math}
+
+Algorithm for line 5 with multiple operations (delete an element from a list):
+\begin{lstlisting}[language=R, frame=single]
+1. Input: list x, index i of the element to delete
+2. For j = i to length(x) - 1 do
+3.     x[j] = x[j+1]
+4. End For
+5. Remove the last element of x
+\end{lstlisting}
+
+Run- time complexity of line 5: O(n), where n is the length of the list x.
+
+Algorithm for line 6 with multiple operations (push an element to the end of a list):
+\begin{lstlisting}[language=R, frame=single]
+1. Input: list x, value v to push
+2. If length(x) < capacity(x) then
+3.     x[length(x)+1] = v
+4. Else
+5.     Allocate a new array y with larger capacity
+6.     For i = 1 to length(x) do
+7.         y[i] = x[i]
+8.     End For
+9.     y[length(x)+1] = v
+10.    x = y
+11. End If
+\end{lstlisting}
+Worst-case run-time complexity of line 6: O(n), where n is the length of the list x, because it requires copying all the elements of x to a new array when the capacity of x is exceeded. However, in the best case when there is enough capacity in the array, the best-case run-time complexity of line 6: O(1).
+
+\underline{Algorithm 2}:
+What the algorithm is supposed to do: 
+The given algorithm implements the Insertion Sort algorithm, which sorts a given list of numeric elements in ascending order. The algorithm iterates over the list, and for each element, it compares it to the elements on its left side and moves it to the correct position. This is done by swapping the current element with the element on its left until the current element is in its correct position.
+
+Analysis of run-time complexity:
+The run-time complexity of the inner loop (Steps 5-9) is O(i) in the worst case, where i is the number of elements that need to be shifted to insert the current element in its correct position. Since i can be at most n-1, the worst-case run-time complexity of the inner loop is O(n). 
+The outer loop (Steps 3-11) iterates n times, and for each iteration, the inner loop can iterate up to i times. 
+Hence, the worst-case run-time complexity of the algorithm: \begin{math}O(n^{2})\end{math}.
+
+T function for the worst-case is:
+\begin{math}T(n) = O(n^{2})\end{math}
+
+\underline{Algorithm 3}:
+What the algorithm is supposed to do: 
+The given algorithm is an implementation of the Bubble Sort algorithm, which is used to sort a list of numeric elements in ascending order. It repeatedly compares adjacent elements in the list and swaps them if they are in the wrong order. The algorithm continues this process until no more swaps are required, indicating that the list is sorted.
+
+Analysis of run-time complexity:
+Step 2: Assigning the length of the list to the variable n takes O(1) time.
+Step 3: Assigning the value true to the variable swapped takes O(1) time.
+Step 4: The while loop runs until swapped is false, which can take up to n iterations. Each iteration of the while loop takes O(n) time, since it contains a nested for loop.
+Steps 6-13: The for loop iterates over each element in the list, performing a comparison and a possible swap for each element. This loop takes O(n) time for each iteration of the while loop, since it runs n-1 times.
+Steps 7-12: The if statement checks if the current element is greater than its adjacent element and performs a swap if necessary. These operations take O(1) time each.
+
+In the worst case, the algorithm has to perform n-1 comparisons for each of the n elements in the list, resulting in a total of (n-1) * n/2 comparisons. Thus, the worst-case run-time complexity of the algorithm: \begin{math}O(n^{2})\end{math}
+
+T function for the worst case is:
+ \begin{math}T(n) = O(n^{2}).\end{math}
+
 
 
 \subsection{Part G}
 
-ENTER HERE
+The time functions for each of the 3 algorithms can be plotted by defining the x-axis to be the length of the input array x = n, and the y-axis to be the worst-case time complexity functions for the respective sorting algorithms.
+Below is the Python code to plot the T functions for 1) Selection Sort, 2) Insertion Sort, and 3) Bubble Sort algorithms:
+\begin{lstlisting}[language=Python, frame=single]
+#Important: Use most recent version of Python to make sure the modules load
+import time
+from random import randint
+import matplotlib.pyplot as plt 
+from algorithms.sort import selection_sort, insertion_sort, bubble_sort
+
+#1)Worst-case time complexity for Selection Sort
+list1 = [i for i in range(5000)]
+times_selection=[]
+for x_1 in range(0,1000,10):
+    start_time = time.time()
+    list2 = selection_sort(list1[:x_1])
+    elapsed_time = time.time() - start_time
+    times_selection.append(elapsed_time)
+print(times_selection)
+x_1=[i for i in range(0,1000,10)]
+
+#matplotlib inline
+plt.xlabel("Length of input array x")
+plt.ylabel("Time function for Selection Sort")
+plt.plot(x_1,times_selection)
+
+#2) Worst-case time complexity for Insertion Sort
+list3 = [i for i in range(5000)]
+times_insertion=[]
+for x_2 in range(0,1000,10):
+    start_time = time.time()
+    list4 = insertion_sort(list3[:x_2])
+    elapsed_time = time.time() - start_time
+    times_insertion.append(elapsed_time)
+print(times_insertion)
+x_2=[i for i in range(0,1000,10)]
+
+#matplotlib inline
+plt.xlabel("Length of input array x")
+plt.ylabel("Time function for Insertion Sort")
+plt.plot(x_2,times_insertion)
+
+#3) Worst-case time complexity for Bubble-Sort
+from algorithms.sort import bubble_sort
+list5 = [i for i in range(5000)]
+times_bubble=[]
+for x_3 in range(0,1000,10):
+    start_time = time.time()
+    list6 = bubble_sort(list5[:x_3])
+    elapsed_time = time.time() - start_time
+    times_bubble.append(elapsed_time)
+print(times_bubble)
+x_3=[i for i in range(0,1000,10)]
+
+#matplotlib inline
+plt.xlabel("Length of input array x")
+plt.ylabel("Time function for Bubble Sort")
+plt.plot(x_3,times_selection)
+\end{lstlisting}
+
+For the worst-case time complexities of each sorting algorithm, the T functions do not intersect.
+For smaller sizes of the input array x (i.e., smaller n), there is a slight chance that the T functions could intersect. As can be seen from the plots generated by the code above though, as the size of the input array x increases, the difference between the T functions of the three sorting algorithms grows and the chance of intersection becomes negligible.
+Insertion Sort performs better than Bubble Sort and Selection Sort for small arrays, as it requires fewer comparisons and swaps. ‘Thus, for smaller arrays, Insertion Sort is the best option.
+
+When we have large arrays as input (i.e., large n), the selection algorithm with the smallest constant factor in its T function would minimize the overall run-time of the algorithm.
+Bubble Sort is not efficient for large arrays. While Selection Sort performs better than Bubble Sort at sorting large arrays, it is still not the best option for very large arrays. While Insertion Sort is efficient for small arrays, as stated before, it may not be the best option for very large arrays. 
+In conclusion, Bubble Sort, Selection Sort, and Insertion Sort have worst-case time complexities of \begin{math}O(n^{2})\end{math}, which means that their efficiency decreases with increasing input array sizes. However, actual performance may depend on the quality of the input array- how far from sorted it is. Thus, while it is possible to determine the best algorithm out of the three (Insertion Sort) for smaller input arrays simply by analyzing the algorithm steps, for larger input arrays it might be best to consider algorithms other than these three- like Quick Sort or Merge Sort. 
+
+
 \newpage
 
 % Question 2
@@ -204,8 +363,23 @@ ENTER HERE
 \subsection{Part A}
 
 Part A Written Explanation:
-The loop invariant is i<x, which makes the code run (as long as i is less than the amount of attempts to run the code). This  condition holds throughout the code. The loop invariants seem to be correct. 
-
+The loop invariants are count and i that seem to increment once loop and if statements are held true, which makes the code run (as long as i is less than the amount of attempts to run the code). These  conditions holds throughout the code. The loop invariant mostly seems correct but we would like to place i++ after the ``end if" as we want count to be the number of points fallen within the circle and i to be the number of total points.
+\begin{lstlisting}[language=R, frame=single]
+Require: x, as a number of attempts
+1: Function f(x)
+2: count=0
+3: i=0
+4: while i < x do
+5: xc=runif(-1,1)
+6: yc=runif(-1,1)
+7: if xc2 + yc2 < 1 then
+8: count++
+9: end if
+10: i++
+11: end while
+println(count/i*4)
+12: EndFunction
+\end{lstlisting}
 
 \subsection{Part B}
 Part B R Code:
@@ -213,52 +387,62 @@ Part B R Code:
 library(purrr)
 
 f <- function(x) {
-  count <- 0
-  i <- 0
-  while (i < x) {
-    xcyc <- map_dbl(rep(runif(1,-1,1), 2), `^`, 2)
-    if (sum(xcyc) < 1) {
-      count <- count + 1
+  count <- 0 #initialize count
+  i <- 0 #initialize i
+  while (i < x) { #begin while loop
+    xcyc <- map_dbl(rep(runif(1,-1,1), 2), `^`, 2) #create a vector of x^2 and y^2
+    if (sum(xcyc) < 1) { # if sum of x^2+ y^2<1
+      count <- count + 1 #increment count
     }
-    i <- i + 1
+    i <- i + 1 #increment i
   }
-  print(count/i*4)
+  print(count/i*4) #print result
 }
 \end{lstlisting}
 
+\newpage
 \subsection{Part C}
 Part C R Code:
 \begin{lstlisting}[language=R, frame=single]
 library(purrr)
-f <- function(x, count=0, i=0){
-  xcyc =map_dbl(rep(runif(1,-1,1), 2), `^`, 2)
-  if (sum(xcyc)<1) {
-  count<-count+1
+f <- function(x, count=0, i=0){  # intialize a function that passes x, count=0, i=1 
+  xcyc =map_dbl(rep(runif(1,-1,1), 2), `^`, 2) #create a vector of x^2 and y^2
+  if (sum(xcyc)<1) { #if sum of x^2+ y^2<1
+  count<-count+1  #increment count
   }
-  i<-i+1
-  if (i<x)
-  return(f(x, count, i))
+  i<-i+1 #increment i
+  if (i<x) # introduce gurad statement
+  return(f(x, count, i)) #if statement holds return to the function and bring same x, new count and new i
   else{
-    return(count/i*4)
+    print(count/i*4) #print result
   }
 }
 \end{lstlisting}
+
+
 Part C Written Explanation:
 
-In the original case, i<x is a while loop condition until the code has run out of attempts.
-In this case i<x is an if statement, serving as a guard expression. Recursivity is put into an if statement with a loop condition i<x that returns to the initial function by passing x, count, and i variables to its next iteration within the function. With every recursive run i larger and once it gets equal to x, it stops the function and returns the final result of the code. 
+In the original case, $i<x$ is a while loop condition until the code has run out of attempts.
+In this case $i<x$ is an if statement, serving as a guard expression. Recursivity is put into an if statement with an if statement $i<x$ that returns to the initial function by passing x, count, and i variables to its next iteration within the function. With every recursive run i and count get larger and once i it gets equal to x, it stops the function and returns the final result of the code. \newline
 
-Let us try to prove the correctness of this code.
-Initialization: Once we enter the code with x attempts, count =0, and i=0  the code will generate a random point within -1,1 and square them. At this stage is i<x. Then if the sum of the coordinates is less then 1 the count increases by 1 with an afterward increase of i
-Maintenance: To see that each iteration maintains i<x, observe how i changes and compare it to x. Once the condition i<x holds, we return to the function with the same value of x and the new increased count and i. The next iteration is entered with x, count=1 and i=1. Termination: Eventually, having this process repeated, i will become equal to x, and the condition (i<x) terminates, leading to the else statement return(count/i*4) . Which means that invariant i<x still holds.
+\newline Let us try to prove the correctness of this code.\newline
+\newline Initialization: Once we enter the code with x attempts, count =0, and i=0  the code will generate a random point within -1,1 and square them. At this stage is i<x. Then if the sum of the coordinates is less then 1 the count increases by 1 with an afterward increase of i. \newline
+\newline Maintenance: To see that each iteration maintains $i<x$, observe how i and count  change and compare it to x. Once the condition $i<x$ holds, we return to the function with the same value of x and the new increased count and i. The next iteration is entered with x, count=1 and i=1.\newline
+\newline Termination: Eventually, having this process repeated, i will become equal to x, and the condition ($i<x$) terminates, thus count and i stop incrementation, leading to the else statement return(count/i*4). Which means that invariant $i<x$ still holds.
+
 \newpage
-
 % Question 3
 \fancyhead[L]{\textbf{Question 3}}
 \section{Question 3}
 \subsection{Initializing Workspace}
 R Code:
 \begin{lstlisting}[language=R, frame=single]
+#Important:
+#All non-code answers are included in the code as comments
+#The data has been loaded using the file path that is specific to my (Hershi's) computer. Please do change it when loading the dataset.
+#Some sections of the code, especially the plots, take a longer time to load. Please consider the fact that the dataset is huge when encountering this delay.
+
+
 #Import the data and clean it of Na's. Convert neg,pos to 0,1.
 
 install.packages("dplyr", repos = "http://cran.us.r-project.org")
@@ -284,6 +468,7 @@ data_train1 <- create_train_test(aps_failure_data_clean, 0.7, train = TRUE)
 data_test1 <- create_train_test(aps_failure_data_clean, 0.7, train = FALSE)
 
 \end{lstlisting}
+\newpage
 \subsection{Part A}
 Part A R Code:
 \begin{lstlisting}[language=R, frame=single]
@@ -315,16 +500,35 @@ risk_test1 <- mean(predict_test1 != data_test1$class)
 predict.train1 <- predict(fit1, data_train1, type = "vector")
 risk_train1 <- mean(predict.train1 != data_train1$class)
 
-# Calculating the false negative rates for training and testing data sets
-train_confusion_matrix1 <- table(data_train1$class, predict.train1)
-test_confusion_matrix1 <- table(data_test1$class, predict_test1)
+train_false_neg_vector <- vector("numeric", 20)
+test_false_neg_vector <- vector("numeric", 20)
 
-train_false_negative_rate <- train_confusion_matrix1[2, 1]/sum(train_confusion_matrix1[2, ])
-test_false_negative_rate <- test_confusion_matrix1[2, 1]/sum(test_confusion_matrix1[2, ])
+for (i in 1:20) {
+  # Training a decision tree model using the training data  
+  fit1 <- rpart(class ~ ., data = data_train1, cp = 0, maxdepth = i + 1)
+  predict.train1 <- predict(fit1, data_train1, type = "vector")
+  predict_test1 <- predict(fit1, data_test1, type = "vector")
+  
+  # Calculating the false negative rates for training and testing data sets
+  train_confusion_matrix1 <- table(data_train1$class, predict.train1)
+  test_confusion_matrix1 <- table(data_test1$class, predict_test1)
+  
+  train_false_neg <- train_confusion_matrix1[2, 1]/sum(train_confusion_matrix1[2, ])
+  test_false_neg <- test_confusion_matrix1[2, 1]/sum(test_confusion_matrix1[2, ])
+  
+  train_false_neg_vector[i] <- train_false_neg
+  test_false_neg_vector[i] <- test_false_neg
+}
+
+plot <- plot(1:20, train_false_neg_vector, type = "o", col = "blue", ylim = range(train_false_neg_vector,    test_false_neg_vector), xlab = "Size of tree", ylab = "false negative rates", main = paste("Data Size = 20000, Train dataset = 0.7%, CP",0))
+lines(1:20, test_false_neg_vector, type = "o", col = "red")
+legend("bottomright", legend = c("On training data", "On testing data"), col = c("blue", "red"), lty = 1, cex = 0.50)
 
 dev.new()
 \end{lstlisting}
 \subsection{Part B}
+Part B written explanation:
+The cp parameter in the rpart() function is responsible for measuring the complexity and size of the decision tree. While larger cp values correspond to a simpler tree with fewer splits, smaller cp values correspond to less pruned decision trees that contain more splits. 
 Part B R Code:
 \begin{lstlisting}[language=R, frame=single]
 #Creating 2 plots with different cp values: X axis: max depth/size of decision tree, Y axis: false negative rate
@@ -358,10 +562,11 @@ for (j in sequence_cp_pre_pruning) {
     test.fnrs[i] <- test.fnr
   }
   
-  plot <- plot(1:20, train.fnrs, type = "o", col = "blue", ylim = range(train.fnrs,test.fnrs), xlab = "Size of tree", ylab = "false negative rates", main = paste("CP=", j))
+  plot <- plot(1:20, train.fnrs, type = "o", col = "blue", ylim = range(train.fnrs,
+  test.fnrs), xlab = "Size of tree", ylab = "false negative rates", main = paste("CP=", j))
   lines(1:20, test.fnrs, type = "o", col = "red")
-  legend("center", legend = c("train.fnr", "test.fnr"), col = c("blue", "red"),
-         lty = 1)
+  legend("bottomright", legend = c("On training data", "On testing data"), col = c("blue", "red"),
+         lty = 1, cex = 0.50)
 }
 
 par(mfrow = c(1, 1))
@@ -408,13 +613,14 @@ for (j in sequence_cp_post_pruning) {
   plot(1:20, train.fnrs1, type = "o", col = "blue", ylim = range(train.fnrs1, test.fnrs1),
        xlab = "Size of tree", ylab = "false negative rates", main = paste("Post-pruning value=", j))
   lines(1:20, test.fnrs1, type = "o", col = "red")
-  legend("center", legend = c("train.fnr1", "test.fnr1"), col = c("blue", "red"),
-         lty = 1)
+  legend("bottomright", legend = c("On training data", "On testing data"), col = c("blue", "red"),
+         lty = 1, cex = 0.50)
 }
 
 par(mfrow = c(1, 1))
 
 dev.new()
+
 \end{lstlisting}
 \subsection{Part D}
 Part D R Code:
@@ -464,21 +670,20 @@ for (i in 1:20) {
   predict.train2 <- predict(fit4, data_train2, type = "vector")
   predict_test2 <- predict(fit4, data_test2, type = "vector")
   
-  # Calculate the false negative rates
-  train_confusion_matrix2 <- table(data_train2$class, predict.train2)
-  test_confusion_matrix2 <- table(data_test2$class, predict_test2)
+  # Calculating the false negative rates
+  train_confusion_matrix4 <- table(data_train2$class, predict.train2)
+  test_confusion_matrix4 <- table(data_test2$class, predict_test2)
   
-  train.fnr2 <- train_confusion_matrix2[2, 1]/sum(train_confusion_matrix2[2, ])
-  test.fnr2 <- test_confusion_matrix2[2, 1]/sum(test_confusion_matrix2[2, ])
+  train.fnr2 <- train_confusion_matrix4[2, 1]/sum(train_confusion_matrix4[2, ])
+  test.fnr2 <- test_confusion_matrix4[2, 1]/sum(test_confusion_matrix4[2, ])
   
   train.fnrs2[i] <- train.fnr2
   test.fnrs2[i] <- test.fnr2
 }
 
-plot <- plot(1:20, train.fnrs2, type = "o", col = "red", ylim = range(train.fnrs2,
-test.fnrs2), xlab = "Size of tree", ylab = "false negative rates", main = paste("Data Size = 60000, Train dataset = 0.85%, CP=", 0))
+plot <- plot(1:20, train.fnrs2, type = "o", col = "red", ylim = range(train.fnrs2, test.fnrs2), xlab = "Size of tree", ylab = "false negative rates", main = paste("Data Size = 60000, Train dataset = 0.8%. CP = 0"))
 lines(1:20, test.fnrs2, type = "o", col = "blue")
-legend("center", legend = c("train.fnr2", "test.fnr2"), col = c("red", "blue"), lty = 1)
+legend("bottomright", legend = c("On training data", "On testing data"), col = c("red", "blue"), lty = 1, cex = 0.50)
 \end{lstlisting}
 Part D Written Explanation:
 Comparing the decision tree from part d to the tree from part a, we can see that the training and testing risks are lower in part d. 
@@ -512,11 +717,12 @@ importance <- data.frame(random_forest$importance)
 
 # Plot the variable importance
 varImpPlot(random_forest)
+
 dev.new()
 
 \end{lstlisting}
 Part F Written Explanation:
-Based on the dataset for part d, the two most important variables with the most important are "bj 000" and am 0.
+Based on the dataset for part d, the two most important variables with the most important are "bj 000" and "am 0".
 \subsection{Part G}
 \begin{lstlisting}[language=R, frame=single]
 install.packages("remotes", repos="http://cran.us.r-project.org")
